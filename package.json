@@ -1,0 +1,20 @@
+{
+  "name": "basic-informational-site",
+  "version": "1.0.0",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bruno514/Node-Web-Server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bruno514/Node-Web-Server/issues"
+  },
+  "homepage": "https://github.com/Bruno514/Node-Web-Server#readme",
+  "description": ""
+}
