@@ -16,5 +16,8 @@
     "url": "https://github.com/Bruno514/Node-Web-Server/issues"
   },
   "homepage": "https://github.com/Bruno514/Node-Web-Server#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
 }

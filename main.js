@@ -1,37 +1,21 @@
-import http from "node:http";
-import fs from "node:fs/promises";
+import express from "express";
+import path from "path";
+import { dirname } from "path";
 
-const server = http.createServer(async (req, res) => {
-  let data = "";
+const __dirname = path.resolve(path.dirname(""));
+const app = express();
 
-  if (req.url === "/") {
-    try {
-      data = await fs.readFile("pages/index.html", { encoding: "utf-8" });
-    } catch (error) {
-      console.error(error);
-    }
-  } else if (req.url === "/about") {
-    try {
-      data = await fs.readFile("pages/about.html", { encoding: "utf-8" });
-    } catch (error) {
-      console.error(error);
-    }
-  } else if (req.url === "/contact-me") {
-    try {
-      data = await fs.readFile("pages/contact-me.html", { encoding: "utf-8" });
-    } catch (error) {
-      console.error(error);
-    }
-  } else {
-    try {
-      data = await fs.readFile("pages/404.html", { encoding: "utf-8" });
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
-  res.writeHead(200, { "Content-Type": "text/html" });
-  res.end(data)
+app.get("/", (req, res) => {
+  res.sendFile("pages/index.html", { root: __dirname });
+});
+app.get("/about", (req, res) => {
+  res.sendFile("pages/about.html", { root: __dirname });
+});
+app.get("/contact-me", (req, res) => {
+  res.sendFile("pages/contact-me.html", { root: __dirname });
+});
+app.get("*", (req, res) => {
+  res.sendFile("pages/404.html", { root: __dirname });
 });
 
-server.listen(8080);
+app.listen(3000);
